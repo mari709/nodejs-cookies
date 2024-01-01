@@ -17,5 +17,11 @@ app.get('/setcookie', (req, res) => {
     })
     res.send('hello cookie');
 })
+
+app.get('/getcookies', (req,res) => {
+    console.log(req.cookies);
+    res.send('reading cookies');
+})
+
 app.listen(3000);
 console.log(`server running on http://localhost:3000`);
