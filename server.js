@@ -3,7 +3,7 @@ import cookieParser from 'cookie-parser';
 
 const app = express();
 app.use(cookieParser());
-app.get('/', (req,res) => {
+app.get('/', (req, res) => {
     res.send('hello world');
 })
 
@@ -18,9 +18,15 @@ app.get('/setcookie', (req, res) => {
     res.send('hello cookie');
 })
 
-app.get('/getcookies', (req,res) => {
+app.get('/getcookies', (req, res) => {
     console.log(req.cookies);
     res.send('reading cookies');
+})
+
+app.get('/deletecookie', (req, res) => {
+    console.log(req.cookies);
+    res.clearCookie('name cookie');
+    res.send('deleting cookies');
 })
 
 app.listen(3000);
